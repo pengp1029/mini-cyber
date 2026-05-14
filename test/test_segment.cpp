@@ -1,7 +1,8 @@
 #include <gtest/gtest.h>
 #include <sys/mman.h>
-#include "../segment.h"
+#include "../src/segment.h"
 
+//g++ -std=c++17 test_segment.cpp     /usr/lib/libgtest.a     /usr/lib/libgtest_main.a     -lrt -pthread -o test_segment
 TEST(SegmentTest, BasicWriteRead){
     Segment seg;
     seg.Init("/test");
