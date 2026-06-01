@@ -1,6 +1,7 @@
 /*
     共享内存池
 */
+#pragma once
 #include "block.h"
 #include <atomic>
 #include <cstring>
@@ -85,7 +86,9 @@ int Segment::AcquireBlockToWrite(){
             return -1;
         }
     }
-    return next_slot_;
+    int res = next_slot_;
+    next_slot_ = (next_slot_ + 1) % SEGMENT_DEFAULT_CAPSITY;
+    return res;
 }
 
 bool Segment::AcquireBlockToRead(int index){

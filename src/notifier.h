@@ -2,6 +2,7 @@
     事件驱动notifier
     功能就是通过unix domain socket建立worker之间的通信
 */
+#pragma once
 #include <atomic>
 #include <string>
 #include <functional>
@@ -18,6 +19,7 @@ struct MessageInfo{
     uint32_t block_idx;
     uint64_t seq_num;
     uint64_t sender_id;
+    size_t size;
 };
 
 class UdsNotifier{
